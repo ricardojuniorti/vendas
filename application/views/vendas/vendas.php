@@ -40,7 +40,7 @@
                     foreach ($results as $r) {
                         $dataVenda = date(('d/m/Y'), strtotime($r->dataVenda));
                         if ($r->faturado == 1) {
-                            $faturado = 'Sim';
+                            $faturado = 'Sim'; //teste
                         } else {
                             $faturado = 'Não';
                         }
