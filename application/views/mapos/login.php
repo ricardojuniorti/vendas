@@ -28,7 +28,7 @@
             } elseif ($hora > 12 && $hora < 18) {
                 return 'Olá! Boa tarde' . (empty($nome) ? '' : ', ' . $nome);
             } else {
-                return 'Olá! Boa noite' . (empty($nome) ? '' : ', ' . $nome);
+                return 'Olá! Boa noite Ricardo Teste' . (empty($nome) ? '' : ', ' . $nome);
             }
         }
         $login = 'bem-vindos';
