@@ -9,6 +9,8 @@
 
 /vendor/
 /application/vendor/
+/application/config/config.php
+/application/config/database.php
 
 .env.local
 .env.development.local
