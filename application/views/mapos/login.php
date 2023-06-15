@@ -37,7 +37,11 @@
   // Irá retornar conforme o horário:
   ?></h1>
 
-      <h2 class="h-two"> Ao Sistema de Controle de Ordens de Serviço</h2>
+      <h2 class="h-two"> Ao Sistema de Controle de Estoque</h2><br />
+      <h4>
+        <div id="dailyVersesWrapper"></div>
+        <script async defer src="https://dailyverses.net/get/verse.js?language=arc"></script>
+      </h4>
       <img src="<?php echo base_url() ?>assets/img/dashboard-animate.svg" class="left-login-image" alt="Map-OS - Versão: <?= $this->config->item('app_version'); ?>">
     </div>
     <div id="loginbox">
