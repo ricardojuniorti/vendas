@@ -48,8 +48,8 @@
                 echo '<tr>';
                 echo '<td>' . $r->idProdutos . '</td>';
                 echo '<td>' . $dataVencimento . '</td>';
-                echo '<td>' . $r->link_produto . '</td>';
                 echo '<td>' . $r->descricao . '</td>';
+                echo '<td>' . $r->link_produto . '</td>';
                 echo '<td>' . $r->estoque . '</td>';
                 echo '<td>' . number_format($r->precoVenda, 2, ',', '.') . '</td>';
                 echo '<td>';
