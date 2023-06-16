@@ -102,20 +102,6 @@
                         </div>
                     </div>
 
-                    <div class="control-group">
-                        <label for="estoqueMinimo" class="control-label">Data de Vencimento<span class="required">*</span></label>
-                        <div class="controls">
-                            <input id="dataVencimento" autocomplete="off" type="text" name="dataVencimento" value="<?php echo date(('d/m/Y'), strtotime($result->dt_vencimento)); ?>" />
-                        </div>
-                    </div>
-
-                    <div class="control-group">
-                        <label for="estoque" class="control-label">Link do produto</label>
-                        <div class="controls">
-                            <input id="linkProduto" type="text" name="linkProduto" value="<?php echo $result->link_produto; ?>" />
-                        </div>
-                    </div>
-
                     <div class="form-actions">
                         <div class="span12">
                             <div class="span6 offset3" style="display: flex;justify-content: center">

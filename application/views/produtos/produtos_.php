@@ -27,7 +27,7 @@
             <thead>
             <tr>
                 <th>Cod.</th>
-                <th>Data Vencimento</th>
+                <th>Cod. Barra</th>
                 <th>Nome</th>
                 <th>Estoque</th>
                 <th>Preço</th>
@@ -43,10 +43,9 @@
                                 </tr>';
             }
             foreach ($results as $r) {
-                $dataVencimento = date(('d/m/Y'), strtotime($r->dt_vencimento));
                 echo '<tr>';
                 echo '<td>' . $r->idProdutos . '</td>';
-                echo '<td>' . $dataVencimento . '</td>';
+                echo '<td>' . $r->codDeBarra . '</td>';
                 echo '<td>' . $r->descricao . '</td>';
                 echo '<td>' . $r->estoque . '</td>';
                 echo '<td>' . number_format($r->precoVenda, 2, ',', '.') . '</td>';

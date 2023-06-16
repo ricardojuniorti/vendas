@@ -32,119 +32,90 @@
                 <span class="icon">
                     <i class="fas fa-shopping-bag"></i>
                 </span>
-                <h5>Editar Produto</h5>
+                <h5>Cadastro de Produto</h5>
             </div>
             <div class="widget-content nopadding tab-content">
                 <?php echo $custom_error; ?>
                 <form action="<?php echo current_url(); ?>" id="formProduto" method="post" class="form-horizontal">
                     <div class="control-group">
-                        <?php echo form_hidden('idProdutos', $result->idProdutos) ?>
                         <label for="codDeBarra" class="control-label">Código de Barra<span class=""></span></label>
                         <div class="controls">
-                            <input id="codDeBarra" type="text" name="codDeBarra" value="<?php echo $result->codDeBarra; ?>" />
+                            <input id="codDeBarra" type="text" name="codDeBarra" value="<?php echo set_value('codDeBarra'); ?>" />
                         </div>
                     </div>
                     <div class="control-group">
                         <label for="descricao" class="control-label">Descrição<span class="required">*</span></label>
                         <div class="controls">
-                            <input id="descricao" type="text" name="descricao" value="<?php echo $result->descricao; ?>" />
+                            <input id="descricao" type="text" name="descricao" value="<?php echo set_value('descricao'); ?>" />
                         </div>
                     </div>
-
                     <div class="control-group">
                         <label class="control-label">Tipo de Movimento</label>
                         <div class="controls">
                             <label for="entrada" class="btn btn-default" style="margin-top: 5px;">Entrada
-                                <input type="checkbox" id="entrada" name="entrada" class="badgebox" value="1" <?= ($result->entrada == 1) ? 'checked' : '' ?>>
+                                <input type="checkbox" id="entrada" name="entrada" class="badgebox" value="1" checked>
                                 <span class="badge">&check;</span>
                             </label>
                             <label for="saida" class="btn btn-default" style="margin-top: 5px;">Saída
-                                <input type="checkbox" id="saida" name="saida" class="badgebox" value="1" <?= ($result->saida == 1) ? 'checked' : '' ?>>
+                                <input type="checkbox" id="saida" name="saida" class="badgebox" value="1" checked>
                                 <span class="badge">&check;</span>
                             </label>
                         </div>
                     </div>
-
                     <div class="control-group">
                         <label for="precoCompra" class="control-label">Preço de Compra<span class="required">*</span></label>
                         <div class="controls">
-                            <input id="precoCompra" class="money" data-affixes-stay="true" data-thousands="" data-decimal="." type="text" name="precoCompra" value="<?php echo $result->precoCompra; ?>" />
+                            <input style="width: 9em;" id="precoCompra" class="money" data-affixes-stay="true" data-thousands="" data-decimal="." type="text" name="precoCompra" value="<?php echo set_value('precoCompra'); ?>" />
                             Margem <input style="width: 3em;" id="margemLucro" name="margemLucro" type="text" placeholder="%" maxlength="3" size="2" />
                             <strong><span style="color: red" id="errorAlert"></span><strong>
                         </div>
                     </div>
-
                     <div class="control-group">
                         <label for="precoVenda" class="control-label">Preço de Venda<span class="required">*</span></label>
                         <div class="controls">
-                            <input id="precoVenda" class="money" data-affixes-stay="true" data-thousands="" data-decimal="." type="text" name="precoVenda" value="<?php echo $result->precoVenda; ?>" />
+                            <input id="precoVenda" class="money" data-affixes-stay="true" data-thousands="" data-decimal="." type="text" name="precoVenda" value="<?php echo set_value('precoVenda'); ?>" />
                         </div>
                     </div>
-
                     <div class="control-group">
                         <label for="unidade" class="control-label">Unidade<span class="required">*</span></label>
                         <div class="controls">
                             <select id="unidade" name="unidade" style="width: 15em;"></select>
                         </div>
                     </div>
-
                     <div class="control-group">
                         <label for="estoque" class="control-label">Estoque<span class="required">*</span></label>
                         <div class="controls">
-                            <input id="estoque" type="text" name="estoque" value="<?php echo $result->estoque; ?>" />
+                            <input id="estoque" type="text" name="estoque" value="<?php echo set_value('estoque'); ?>" />
                         </div>
                     </div>
-
                     <div class="control-group">
                         <label for="estoqueMinimo" class="control-label">Estoque Mínimo</label>
                         <div class="controls">
-                            <input id="estoqueMinimo" type="text" name="estoqueMinimo" value="<?php echo $result->estoqueMinimo; ?>" />
+                            <input id="estoqueMinimo" type="text" name="estoqueMinimo" value="<?php echo set_value('estoqueMinimo'); ?>" />
                         </div>
                     </div>
-
-                    <div class="control-group">
-                        <label for="estoqueMinimo" class="control-label">Data de Vencimento<span class="required">*</span></label>
-                        <div class="controls">
-                            <input id="dataVencimento" autocomplete="off" type="text" name="dataVencimento" value="<?php echo date(('d/m/Y'), strtotime($result->dt_vencimento)); ?>" />
-                        </div>
-                    </div>
-
-                    <div class="control-group">
-                        <label for="estoque" class="control-label">Link do produto</label>
-                        <div class="controls">
-                            <input id="linkProduto" type="text" name="linkProduto" value="<?php echo $result->link_produto; ?>" />
-                        </div>
-                    </div>
-
                     <div class="form-actions">
                         <div class="span12">
                             <div class="span6 offset3" style="display: flex;justify-content: center">
-                                <button type="submit" class="button btn btn-primary" style="max-width: 160px">
-                                  <span class="button__icon"><i class="bx bx-sync"></i></span><span class="button__text2">Atualizar</span></button>
-                                <a href="<?php echo base_url() ?>index.php/produtos" id="" class="button btn btn-mini btn-warning">
-                                  <span class="button__icon"><i class="bx bx-undo"></i></span><span class="button__text2">Voltar</span></a>
+                                <button type="submit" class="button btn btn-mini btn-success" style="max-width: 160px"><span class="button__icon"><i class='bx bx-plus-circle'></i></span><span class="button__text2">Adicionar</span></button>
+                                <a href="<?php echo base_url() ?>index.php/produtos" id="" class="button btn btn-mini btn-warning"><span class="button__icon"><i class="bx bx-undo"></i></span><span class="button__text2">Voltar</span></a>
                             </div>
                         </div>
                     </div>
-
-
                 </form>
             </div>
-
         </div>
     </div>
 </div>
-
 
 <script src="<?php echo base_url() ?>assets/js/jquery.validate.js"></script>
 <script src="<?php echo base_url(); ?>assets/js/maskmoney.js"></script>
 <script type="text/javascript">
     function calcLucro(precoCompra, margemLucro) {
-    var precoVenda = (precoCompra * margemLucro / 100 + precoCompra).toFixed(2);
-    return precoVenda;
-
-}
-    $("#precoCompra").focusout(function () {
+        var precoVenda = (precoCompra * margemLucro / 100 + precoCompra).toFixed(2);
+        return precoVenda;
+    }
+    $("#precoCompra").focusout(function() {
         if ($("#precoCompra").val() == '0.00' && $('#precoVenda').val() != '') {
             $('#errorAlert').text('Você não pode preencher valor de compra e depois apagar.').css("display", "inline").fadeOut(6000);
             $('#precoVenda').val('');
@@ -154,7 +125,7 @@
         }
     });
 
-   $("#margemLucro").keyup(function () {
+    $("#margemLucro").keyup(function() {
         this.value = this.value.replace(/[^0-9.]/g, '');
         if ($("#precoCompra").val() == null || $("#precoCompra").val() == '') {
             $('#errorAlert').text('Preencher valor da compra primeiro.').css("display", "inline").fadeOut(5000);
@@ -175,10 +146,11 @@
         if (Number($('#precoVenda').val()) < Number($("#precoCompra").val())) {
             $('#errorAlert').text('Preço de venda não pode ser menor que o preço de compra.').css("display", "inline").fadeOut(6000);
             $('#precoVenda').val('');
-            if($("#margemLucro").val() != "" || $("#margemLucro").val() != null){
+            if ($("#margemLucro").val() != "" || $("#margemLucro").val() != null) {
                 $('#precoVenda').val(calcLucro(Number($("#precoCompra").val()), Number($("#margemLucro").val())));
             }
         }
+
     });
 
     $(document).ready(function() {
@@ -186,7 +158,6 @@
         $.getJSON('<?php echo base_url() ?>assets/json/tabela_medidas.json', function(data) {
             for (i in data.medidas) {
                 $('#unidade').append(new Option(data.medidas[i].descricao, data.medidas[i].sigla));
-                $("#unidade option[value=" + '<?php echo $result->unidade; ?>' + "]").prop("selected", true);
             }
         });
         $('#formProduto').validate({
@@ -224,7 +195,6 @@
                     required: 'Campo Requerido.'
                 }
             },
-
             errorClass: "help-inline",
             errorElement: "span",
             highlight: function(element, errorClass, validClass) {

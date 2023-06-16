@@ -61,7 +61,6 @@ class Produtos extends MY_Controller
             $precoCompra = str_replace(",", "", $precoCompra);
             $precoVenda = $this->input->post('precoVenda');
             $precoVenda = str_replace(",", "", $precoVenda);
-            $dataVencimento = implode("-",array_reverse(explode("/",$this->input->post('dataVencimento'))));
             $data = [
                 'codDeBarra' => set_value('codDeBarra'),
                 'descricao' => set_value('descricao'),
@@ -72,8 +71,6 @@ class Produtos extends MY_Controller
                 'estoqueMinimo' => set_value('estoqueMinimo'),
                 'saida' => set_value('saida'),
                 'entrada' => set_value('entrada'),
-                'dt_vencimento' => $dataVencimento,   
-                'link_produto' => $this->input->post('linkProduto'),            
             ];
 
             if ($this->produtos_model->add('produtos', $data) == true) {
@@ -109,7 +106,6 @@ class Produtos extends MY_Controller
             $precoCompra = str_replace(",", "", $precoCompra);
             $precoVenda = $this->input->post('precoVenda');
             $precoVenda = str_replace(",", "", $precoVenda);
-            $dataVencimento = implode("-",array_reverse(explode("/",$this->input->post('dataVencimento'))));
             $data = [
                 'codDeBarra' => set_value('codDeBarra'),
                 'descricao' => $this->input->post('descricao'),
@@ -120,8 +116,6 @@ class Produtos extends MY_Controller
                 'estoqueMinimo' => $this->input->post('estoqueMinimo'),
                 'saida' => set_value('saida'),
                 'entrada' => set_value('entrada'),
-                'dt_vencimento' => $dataVencimento,
-                'link_produto' => $this->input->post('linkProduto'),
             ];
 
             if ($this->produtos_model->edit('produtos', $data, 'idProdutos', $this->input->post('idProdutos')) == true) {

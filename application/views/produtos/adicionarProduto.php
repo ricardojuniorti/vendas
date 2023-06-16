@@ -44,7 +44,7 @@
                         </div>
                     </div>
                     <div class="control-group">
-                        <label for="descricao" class="control-label">Descrição<span class="required">*</span></label>
+                        <label for="descricao" class="control-label">Nome do Produto<span class="required">*</span></label>
                         <div class="controls">
                             <input id="descricao" type="text" name="descricao" value="<?php echo set_value('descricao'); ?>" />
                         </div>
@@ -94,6 +94,19 @@
                             <input id="estoqueMinimo" type="text" name="estoqueMinimo" value="<?php echo set_value('estoqueMinimo'); ?>" />
                         </div>
                     </div>
+                    <div class="control-group">
+                        <label for="estoqueMinimo" class="control-label">Data de Vencimento<span class="required">*</span></label>
+                        <div class="controls">
+                            <input id="dataVencimento" autocomplete="off" type="text" name="dataVencimento" value="<?php echo date('d/m/Y'); ?>" />
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label for="estoque" class="control-label">Link do produto</label>
+                        <div class="controls">
+                            <input id="linkProduto" type="text" name="linkProduto" value="<?php echo set_value('linkProduto'); ?>" />
+                        </div>
+                    </div>
+                    
                     <div class="form-actions">
                         <div class="span12">
                             <div class="span6 offset3" style="display: flex;justify-content: center">
@@ -115,6 +128,7 @@
         var precoVenda = (precoCompra * margemLucro / 100 + precoCompra).toFixed(2);
         return precoVenda;
     }
+    
     $("#precoCompra").focusout(function() {
         if ($("#precoCompra").val() == '0.00' && $('#precoVenda').val() != '') {
             $('#errorAlert').text('Você não pode preencher valor de compra e depois apagar.').css("display", "inline").fadeOut(6000);
@@ -124,7 +138,7 @@
             $('#precoVenda').val(calcLucro(Number($("#precoCompra").val()), Number($("#margemLucro").val())));
         }
     });
-
+    
     $("#margemLucro").keyup(function() {
         this.value = this.value.replace(/[^0-9.]/g, '');
         if ($("#precoCompra").val() == null || $("#precoCompra").val() == '') {
@@ -141,7 +155,7 @@
             $('#precoVenda').val('');
         }
     });
-
+    
     $('#precoVenda').focusout(function () {
         if (Number($('#precoVenda').val()) < Number($("#precoCompra").val())) {
             $('#errorAlert').text('Preço de venda não pode ser menor que o preço de compra.').css("display", "inline").fadeOut(6000);
@@ -152,7 +166,7 @@
         }
 
     });
-
+    
     $(document).ready(function() {
         $(".money").maskMoney();
         $.getJSON('<?php echo base_url() ?>assets/json/tabela_medidas.json', function(data) {
@@ -169,7 +183,7 @@
                     required: true
                 },
                 precoCompra: {
-                    required: true
+                    required: false
                 },
                 precoVenda: {
                     required: true
@@ -177,6 +191,7 @@
                 estoque: {
                     required: true
                 }
+               
             },
             messages: {
                 descricao: {
@@ -192,6 +207,9 @@
                     required: 'Campo Requerido.'
                 },
                 estoque: {
+                    required: 'Campo Requerido.'
+                },
+                dataVencimento: {
                     required: 'Campo Requerido.'
                 }
             },
