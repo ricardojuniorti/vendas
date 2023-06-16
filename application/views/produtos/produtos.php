@@ -49,7 +49,7 @@
                 echo '<td>' . $r->idProdutos . '</td>';
                 echo '<td>' . $dataVencimento . '</td>';
                 echo '<td>' . $r->descricao . '</td>';
-                echo '<td>' . $r->link_produto . '</td>';
+                echo '<td> <a href=' . $r->link_produto . ' target="_blank">'. $r->link_produto .'</a></td>';
                 echo '<td>' . $r->estoque . '</td>';
                 echo '<td>' . number_format($r->precoVenda, 2, ',', '.') . '</td>';
                 echo '<td>';
