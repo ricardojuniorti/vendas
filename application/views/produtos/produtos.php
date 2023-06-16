@@ -29,6 +29,7 @@
                 <th>Cod.</th>
                 <th>Data Vencimento</th>
                 <th>Nome</th>
+                <th>Link produto</th>
                 <th>Estoque</th>
                 <th>Preço</th>
                 <th>Ações</th>
@@ -47,6 +48,7 @@
                 echo '<tr>';
                 echo '<td>' . $r->idProdutos . '</td>';
                 echo '<td>' . $dataVencimento . '</td>';
+                echo '<td>' . $r->link_produto . '</td>';
                 echo '<td>' . $r->descricao . '</td>';
                 echo '<td>' . $r->estoque . '</td>';
                 echo '<td>' . number_format($r->precoVenda, 2, ',', '.') . '</td>';
